@@ -1,0 +1,75 @@
+"use client";
+
+import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
+import "./timeline.css";
+import { timelineData } from "@/data/timelineDetails";
+
+export function Timeline() {
+  // Group timeline items by year
+  const yearGroup = timelineData.reduce((acc, item) => {
+    if (!acc[item.year]) acc[item.year] = [];
+    acc[item.year].push(item);
+    return acc;
+  }, {} as Record<number, typeof timelineData>);
+
+  // Sort years ascending
+  const milestone = Object.keys(yearGroup).sort((a, b) => Number(a) - Number(b));
+
+  let initialCount = 0; // keeps the alternating flow
+
+  return (
+    <section>
+      <VerticalTimeline lineColor="grey">
+        {milestone.map((year, yearIdx) => {
+          const headerPosition = initialCount % 2 === 0 ? "right" : "left";
+          initialCount++; // header counts in the flow
+
+          return (
+            <div key={yearIdx}>
+              {/* Year header element */}
+              <VerticalTimelineElement
+                date={year}
+                position={headerPosition}   
+                contentStyle={{
+                  boxShadow: "none",
+                  margin: "0px",
+                  textAlign: "center",
+                  background: "transparent",
+                }}
+                contentArrowStyle={{ borderRight: "none" }}
+                iconStyle={{
+                  background: "grey",
+                  width: "24px",
+                  height: "24px",
+                  marginLeft: "-12px",
+                  border: "none",
+                  boxShadow: "none",
+                }}
+              >
+                <h2 style={{ margin: 0 }}>{year}</h2>
+              </VerticalTimelineElement>
+
+              {/* Timeline items for this year */}
+              {yearGroup[Number(year)].map((item, idx) => {
+                const position = initialCount % 2 === 0 ? "right" : "left";
+                initialCount++; // move flow forward
+
+                return (
+                  <VerticalTimelineElement
+                    key={idx}
+                    position={position}
+                    iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
+                  >
+                    <h3>{item.title}</h3>
+                    <h4>{item.subtitle}</h4>
+                    <p>{item.description}</p>
+                  </VerticalTimelineElement>
+                );
+              })}
+            </div>
+          );
+        })}
+      </VerticalTimeline>
+    </section>
+  );
+}

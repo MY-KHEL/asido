@@ -1,0 +1,70 @@
+/* Remove default line (we draw our own with .timeline-line) */
+.vertical-timeline::before {
+  display: none !important;
+}
+
+/* Kill extra space on the last element wrapper */
+.vertical-timeline > .vertical-timeline-element:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Also kill extra padding inside the last element’s content */
+.vertical-timeline-element:last-child .vertical-timeline-element-content {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+
+}
+.vertical-timeline-element-content{
+  box-shadow: none;
+  opacity: 0;
+}
+
+/* Your custom animated line */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background-color: #e7e9f5; /* base grey line */
+  transform: translateX(-50%);
+  z-index: 0;
+  overflow: hidden;
+}
+
+.timeline-line-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #0044B5; /* blue progress */
+  transform-origin: top center;
+  transform: scaleY(0); /* initially hidden */
+}
+
+@media (max-width: 1024px) {
+  .vertical-timeline::before {
+    background: transparent !important;
+    width: 0 !important;
+  }
+}
+/* Tablet */
+@media (max-width: 1024px) {
+  .timeline-line {
+    left: 2.5%; /* shift slightly left */
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .timeline-line {
+    left: 2.5%; /* shift to the left for mobile */
+  }
+}
+
+/* Timeline progress bar inside */
+.timeline-line-progress {
+  transform-origin: top center;
+}
