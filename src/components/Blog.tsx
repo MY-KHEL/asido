@@ -9,8 +9,7 @@ export function Blog() {
                 <h2 className=" text-[14px] lg:text-[24px] text-project-green">Stay Informed</h2>
                 <p className=" text-[18px] lg:text-[31px] font-medium">Through advocacy, education, and support, were building a stigma-free future for mental health in Nigeria.</p>
 
-                <MobileBlog/>
-
+             
                 <div className=" rounded-lg px-10 mt-[60px]">
                     <div className="px-[50px] lg:grid grid-cols-3 gap-[20px] hidden " >
                         {blogDetails.map((blog, index) => (
