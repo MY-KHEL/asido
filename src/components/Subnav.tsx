@@ -5,10 +5,10 @@ export function SubNav() {
     return(
         <>
         <div className=" lg:mt-7 lg:px-20 ">
-            <nav className=" mx-auto w-full bg-project-grey lg:bg-white p-4 lg:p-0 lg:w-[60%]">
-                <ul className="hidden lg:flex gap-10 justify-between items-center text-lg font-medium py-[15px] px-[24px]">
+            <nav className=" mx-auto w-full bg-project-grey lg:bg-white p-4 lg:p-0 xl:w-[60%]">
+                <ul className="hidden lg:flex gap-10 justify-between items-center xl:text-lg font-medium lg:py-[15px] lg:px-[24px]">
                     {sublinks.map((link,index) => (
-                        <li key={index}><a href={link.url} className="text-project-blue   font-semibold uppercase hover:text-project-green">{link.name}</a></li>
+                        <li key={index}><a href={link.url} className="text-project-blue  md:text-md xl:text-lg  font-semibold uppercase hover:text-project-green">{link.name}</a></li>
                     ))}
                 </ul>
 

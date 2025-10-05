@@ -13,7 +13,7 @@ import Image from "next/image";
 export function Navbar() {
     return (
         <>
-            <div className="w-full py-[18px] px-6 lg:py-5 lg:pl-32 lg:pr-28 shadow-md lg:shadow-none">
+            <div className="w-full py-[18px] px-6 lg:py-5 xl:pl-32 xl:pr-28 shadow-md lg:shadow-none">
                 <div className="flex lg:py-5 justify-between">
                     <div className="lg:w-[164px] lg:h-[44]  w-[96px] h-[25px] relative">
                     <Image src={'/asido.png'} alt="logo" fill  className="object-contain"/>
@@ -58,7 +58,7 @@ export function Navbar() {
                     <nav>
                         <ul className="flex gap-10 text-lg font-medium ">
                             {links.map((link,index) => (
-                                <li key={index}><a href={link.url} className="text-project-blue font-semibold uppercase hover:text-project-green">{link.name}</a></li>
+                                <li key={index}><a href={link.url} className="text-project-blue font-semibold xl:text-lg md:text-[16px] uppercase hover:text-project-green">{link.name}</a></li>
                             ))}
                           
 

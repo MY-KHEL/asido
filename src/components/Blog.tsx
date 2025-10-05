@@ -10,18 +10,18 @@ export function Blog() {
                 <p className=" text-[18px] lg:text-[31px] font-medium">Through advocacy, education, and support, were building a stigma-free future for mental health in Nigeria.</p>
 
                 <MobileBlog/>
-                
+
                 <div className=" rounded-lg px-10 mt-[60px]">
                     <div className="px-[50px] lg:grid grid-cols-3 gap-[20px] hidden " >
                         {blogDetails.map((blog, index) => (
                             <div className=""  key={index} >
-                            <section  className="h-[530px]">
+                            <section  className="[570px]">
                                 <div className="w-full " >
-                                    <img src={blog.url} alt={blog.title} className="h-[380px] object-cover " />
+                                    <img src={blog.url} alt={blog.title} className="h-auto object-contain " />
 
                                 </div>
                                 <div className="blog-text">
-                                    <h3 className="text-[25px] font-semibold mt-5">{blog.title}</h3>
+                                    <h3 className="text-[16px] xl:text-[25px] font-semibold mt-5">{blog.title}</h3>
                                 </div>
                             </section>
                             <p className="text-project-blue font-semibold"> READ MORE <ChevronRight className="inline"/></p>
